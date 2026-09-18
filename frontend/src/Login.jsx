@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Login.css";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -40,32 +41,88 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div>
-      <h1>PULSE Login</h1>
+    <div className="login-page">
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+      <div className="login-decoration decoration-one"></div>
+      <div className="login-decoration decoration-two"></div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <div className="login-content">
 
-        {error && <p>{error}</p>}
+        <div className="login-brand">
+          <div className="login-brand-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-        <button type="submit">
-          Sign In
-        </button>
-      </form>
+          <span>PULSE</span>
+        </div>
+
+        <div className="login-heading">
+          <p>WELCOME BACK</p>
+
+          <h1>Ready to listen?</h1>
+
+          <span>
+            Sign in to create polls and see responses in real time.
+          </span>
+        </div>
+
+        <form
+          className="login-card"
+          onSubmit={handleLogin}
+        >
+
+          <div className="input-group">
+            <label>Email address</label>
+
+            <input
+              type="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label>Password</label>
+
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          {error && (
+            <p className="login-error">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="login-button"
+          >
+            Sign In
+            <span>→</span>
+          </button>
+
+          <div className="login-footer">
+            <span>Simple questions.</span>
+            <span>Real responses.</span>
+          </div>
+
+        </form>
+
+        <p className="login-bottom-text">
+          PULSE · Real-time polling made simple
+        </p>
+
+      </div>
     </div>
   );
 }
