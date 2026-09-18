@@ -37,8 +37,8 @@ function App() {
             <span></span>
           </div>
 
-          <button
-            className="pulse-logo-button"
+          <span
+            className="pulse-logo-text"
             onClick={() =>
               alert(
                 "Why PULSE? ❤️\n\n" +
@@ -49,7 +49,7 @@ function App() {
             }
           >
             PULSE
-          </button>
+          </span>
         </div>
 
         <nav className="nav-links">
