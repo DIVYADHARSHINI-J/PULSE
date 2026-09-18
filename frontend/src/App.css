@@ -1,0 +1,694 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f7f5ef;
+  color: #26352e;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pulse-app {
+  min-height: 100vh;
+  background: #f7f5ef;
+  overflow: hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 78px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dedfd8;
+  background: rgba(247, 245, 239, 0.96);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.brand-mark {
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transform: rotate(-15deg);
+}
+
+.brand-mark span {
+  display: block;
+  width: 4px;
+  border-radius: 10px;
+  background: #557a6c;
+}
+
+.brand-mark span:nth-child(1) {
+  height: 10px;
+}
+
+.brand-mark span:nth-child(2) {
+  height: 21px;
+}
+
+.brand-mark span:nth-child(3) {
+  height: 15px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  color: #65736c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #3f6255;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-button,
+.nav-button {
+  border-radius: 9px;
+  padding: 11px 18px;
+  font-size: 14px;
+}
+
+.text-button {
+  border: none;
+  background: transparent;
+  color: #506059;
+  font-weight: 500;
+}
+
+.nav-button {
+  border: none;
+  background: #557a6c;
+  color: white;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.nav-button:hover {
+  background: #3f6255;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  max-width: 1320px;
+  min-height: 650px;
+  margin: auto;
+  padding: 90px 7% 80px;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.eyebrow {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  margin-bottom: 26px;
+  background: #e2ebe5;
+  border: 1px solid #cbdacf;
+  border-radius: 30px;
+  color: #46695b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #557a6c;
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(62px, 7vw, 94px);
+  line-height: 0.98;
+  letter-spacing: -4.5px;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: #705d8d;
+}
+
+.hero-text {
+  max-width: 540px;
+  margin-top: 30px;
+  color: #5f6c65;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 34px;
+}
+
+.primary-button,
+.secondary-button {
+  height: 51px;
+  border-radius: 9px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primary-button {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: none;
+  background: #557a6c;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #3f6255;
+  transform: translateY(-2px);
+}
+
+.primary-button span {
+  font-size: 20px;
+}
+
+.secondary-button {
+  border: 1px solid #cfd5cf;
+  background: #fbfaf6;
+  color: #53615a;
+}
+
+.secondary-button:hover {
+  background: #eceee9;
+}
+
+.hero-note {
+  margin-top: 19px;
+  color: #858f89;
+  font-size: 12px;
+}
+
+/* =========================
+   POLL SHOWCASE
+========================= */
+
+.poll-showcase {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poll-card {
+  position: relative;
+  z-index: 3;
+  width: 375px;
+  padding: 27px;
+  background: #ffffff;
+  border: 1px solid #dce1dc;
+  border-radius: 17px;
+  box-shadow:
+    0 24px 55px rgba(55, 72, 64, 0.11),
+    0 4px 12px rgba(55, 72, 64, 0.05);
+}
+
+.poll-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #557a6c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.poll-top > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-indicator {
+  width: 7px;
+  height: 7px;
+  background: #557a6c;
+  border-radius: 50%;
+}
+
+.poll-time {
+  color: #89938d;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.poll-content {
+  padding: 30px 0 11px;
+}
+
+.poll-label {
+  color: #8b7aa5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.poll-content h2 {
+  margin-top: 10px;
+  margin-bottom: 27px;
+  font-family: "Manrope", sans-serif;
+  font-size: 25px;
+  line-height: 1.35;
+  letter-spacing: -0.7px;
+}
+
+.poll-option {
+  margin-bottom: 20px;
+}
+
+.option-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #4f5e56;
+  font-size: 13px;
+}
+
+.option-info > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option-info > span:last-child {
+  color: #718079;
+  font-weight: 600;
+}
+
+.selected-option {
+  color: #3f6255;
+  font-weight: 700;
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d6e5dc;
+  border-radius: 50%;
+  color: #3f6255;
+  font-size: 10px;
+}
+
+.option-track {
+  height: 8px;
+  background: #e9ede9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.option-fill {
+  height: 100%;
+  background: #557a6c;
+  border-radius: 20px;
+  transition: width 0.8s ease;
+}
+
+.poll-option:nth-of-type(3) .option-fill {
+  background: #8d7baa;
+}
+
+.poll-option:nth-of-type(4) .option-fill {
+  background: #a87f68;
+}
+
+.poll-option:nth-of-type(5) .option-fill {
+  background: #82988e;
+}
+
+.poll-footer {
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e6e9e5;
+  color: #7e8983;
+  font-size: 11px;
+}
+
+.poll-footer span:first-child {
+  color: #557a6c;
+  font-weight: 600;
+}
+
+/* =========================
+   DECORATION
+========================= */
+
+.soft-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #d5e0da;
+}
+
+.circle-one {
+  width: 375px;
+  height: 375px;
+}
+
+.circle-two {
+  width: 295px;
+  height: 295px;
+  border-color: #ddd5e8;
+}
+
+.floating-note {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #dce1dc;
+  border-radius: 9px;
+  color: #65736c;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 9px 28px rgba(50, 65, 58, 0.08);
+}
+
+.floating-note span {
+  color: #557a6c;
+}
+
+.note-one {
+  top: 60px;
+  right: 5px;
+}
+
+.note-two {
+  bottom: 62px;
+  left: 8px;
+}
+
+.note-two span {
+  color: #8d7baa;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 25px 5% 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+  background: #fdfcf9;
+  border: 1px solid #dfe3de;
+  border-radius: 13px;
+  transition: 0.2s ease;
+}
+
+.feature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(55, 72, 64, 0.06);
+}
+
+.feature-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.feature-icon.sage {
+  background: #dce9e1;
+  color: #46695b;
+}
+
+.feature-icon.lavender {
+  background: #e7e0f0;
+  color: #705d8d;
+}
+
+.feature-icon.peach {
+  background: #f0e2d9;
+  color: #966f59;
+}
+
+.feature h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.feature p {
+  margin-top: 5px;
+  color: #737f78;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-it-works {
+  padding: 105px 7% 125px;
+  background: #e9eee9;
+  border-top: 1px solid #d9dfd9;
+}
+
+.section-heading {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-heading p {
+  color: #557a6c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.section-heading h2 {
+  margin-top: 13px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(38px, 5vw, 62px);
+  letter-spacing: -2.5px;
+}
+
+.steps {
+  max-width: 1000px;
+  margin: 65px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.step {
+  padding: 30px;
+  background: #f9faf7;
+  border: 1px solid #d6ddd6;
+  border-radius: 14px;
+}
+
+.step > span {
+  color: #705d8d;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.step h3 {
+  margin-top: 25px;
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+}
+
+.step p {
+  margin-top: 10px;
+  color: #68756e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 65px;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .poll-showcase {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 68px;
+    padding: 0 20px;
+  }
+
+  .nav-button {
+    padding: 9px 13px;
+  }
+
+  .hero {
+    padding: 55px 22px 45px;
+    gap: 50px;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+    letter-spacing: -3px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  .poll-showcase {
+    min-height: 390px;
+  }
+
+  .poll-card {
+    width: min(100%, 345px);
+  }
+
+  .circle-one {
+    width: 330px;
+    height: 330px;
+  }
+
+  .circle-two {
+    width: 255px;
+    height: 255px;
+  }
+
+  .note-one {
+    right: -5px;
+    top: 35px;
+  }
+
+  .note-two {
+    left: -5px;
+    bottom: 30px;
+  }
+
+  .features {
+    padding: 20px 22px 55px;
+  }
+
+  .how-it-works {
+    padding: 75px 22px;
+  }
+}
