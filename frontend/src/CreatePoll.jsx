@@ -22,7 +22,7 @@ function CreatePoll({ onBack }) {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/polls",
+        "https://pulse-or4d.onrender.com/api/polls",
         {
           method: "POST",
           headers: {
@@ -49,12 +49,14 @@ function CreatePoll({ onBack }) {
 
       const pollId = data.poll.id;
 
-const shareLink = `${window.location.origin}/poll/${pollId}`;
+      const shareLink = `${window.location.origin}/poll/${pollId}`;
 
-alert(`Poll created successfully!\n\nShare this link:\n${shareLink}`);
+      alert(
+        `Poll created successfully!\n\nShare this link:\n${shareLink}`
+      );
 
-console.log("Poll ID:", pollId);
-console.log("Share Link:", shareLink);
+      console.log("Poll ID:", pollId);
+      console.log("Share Link:", shareLink);
     } catch (error) {
       alert("Could not connect to server");
     }
@@ -62,9 +64,7 @@ console.log("Share Link:", shareLink);
 
   return (
     <div className="create-poll-page">
-
       <div className="create-poll-header">
-
         <button
           className="back-button"
           onClick={onBack}
@@ -75,13 +75,10 @@ console.log("Share Link:", shareLink);
         <div className="create-brand">
           <span>PULSE</span>
         </div>
-
       </div>
 
       <div className="create-poll-container">
-
         <div className="create-poll-heading">
-
           <p>CREATE A POLL</p>
 
           <h1>What do you want to ask?</h1>
@@ -89,14 +86,12 @@ console.log("Share Link:", shareLink);
           <span>
             Keep it simple. Your audience can respond in seconds.
           </span>
-
         </div>
 
         <form
           className="create-poll-card"
           onSubmit={handleCreatePoll}
         >
-
           <label>Question</label>
 
           <textarea
@@ -135,11 +130,8 @@ console.log("Share Link:", shareLink);
           >
             Create Poll →
           </button>
-
         </form>
-
       </div>
-
     </div>
   );
 }
