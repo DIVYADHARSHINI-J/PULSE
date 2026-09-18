@@ -15,10 +15,7 @@ import (
 
 func main() {
 	// Load environment variables
-	err := godotenv.Load()
-	if err != nil {
-		panic(err)
-	}
+	godotenv.Load()
 
 	// Connect to MongoDB
 	config.ConnectDB()
