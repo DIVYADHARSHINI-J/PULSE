@@ -51,12 +51,16 @@ function CreatePoll({ onBack }) {
 
       const shareLink = `${window.location.origin}/poll/${pollId}`;
 
-      alert(
-        `Poll created successfully!\n\nShare this link:\n${shareLink}`
-      );
-
-      console.log("Poll ID:", pollId);
-      console.log("Share Link:", shareLink);
+try {
+  await navigator.clipboard.writeText(shareLink);
+  alert(
+    `Poll created successfully! 🎉\n\nShare link copied to your clipboard!`
+  );
+} catch (error) {
+  alert(
+    `Poll created successfully! 🎉\n\nShare this link:\n${shareLink}`
+  );
+}
     } catch (error) {
       alert("Could not connect to server");
     }
