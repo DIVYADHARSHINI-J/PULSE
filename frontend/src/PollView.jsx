@@ -24,7 +24,7 @@ function PollView({ pollId }) {
   const fetchResults = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/polls/${pollId}/results`
+        `https://pulse-or4d.onrender.com/api/polls/${pollId}/results`
       );
 
       const data = await response.json();
@@ -42,7 +42,7 @@ function PollView({ pollId }) {
     const fetchPoll = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/polls/${pollId}`
+          `https://pulse-or4d.onrender.com/api/polls/${pollId}`
         );
 
         const data = await response.json();
@@ -62,7 +62,12 @@ function PollView({ pollId }) {
       }
     };
 
-    fetchPoll();
+    if (pollId) {
+      fetchPoll();
+    } else {
+      setMessage("Poll ID is missing");
+      setLoading(false);
+    }
   }, [pollId]);
 
   // WebSocket for live results
@@ -72,7 +77,7 @@ function PollView({ pollId }) {
     }
 
     const socket = new WebSocket(
-      `ws://localhost:8080/api/polls/${pollId}/ws`
+      `wss://pulse-or4d.onrender.com/api/polls/${pollId}/ws`
     );
 
     socket.onopen = () => {
@@ -81,7 +86,6 @@ function PollView({ pollId }) {
 
     socket.onmessage = () => {
       console.log("Poll updated!");
-
       fetchResults();
     };
 
@@ -112,7 +116,7 @@ function PollView({ pollId }) {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/polls/${pollId}/vote`,
+        `https://pulse-or4d.onrender.com/api/polls/${pollId}/vote`,
         {
           method: "POST",
           headers: {
