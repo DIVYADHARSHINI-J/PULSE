@@ -4,13 +4,12 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"os"
 	"strings"
 	"time"
-	"os"
-
-    "github.com/golang-jwt/jwt/v5"
 
 	"github.com/gin-gonic/gin"
+	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 	"go.mongodb.org/mongo-driver/v2/bson"
 
@@ -51,13 +50,13 @@ func Signup(c *gin.Context) {
 	)
 
 	if err != nil {
-	fmt.Println("MongoDB insert error:", err)
+		fmt.Println("Password hashing error:", err)
 
-	c.JSON(http.StatusInternalServerError, gin.H{
-		"error": "Could not create user",
-	})
-	return
-}
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Could not create user",
+		})
+		return
+	}
 
 	// Create user
 	user := models.User{
@@ -141,6 +140,7 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
+
 	// Create JWT token
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"userId": user.ID.Hex(),
@@ -156,14 +156,15 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
+
 	// Login successful
 	c.JSON(http.StatusOK, gin.H{
-	"message": "Login successful",
-	"token":   signedToken,
-	"user": gin.H{
-		"id":    user.ID.Hex(),
-		"name":  user.Name,
-		"email": user.Email,
-	},
-})
+		"message": "Login successful",
+		"token":   signedToken,
+		"user": gin.H{
+			"id":    user.ID.Hex(),
+			"name":  user.Name,
+			"email": user.Email,
+		},
+	})
 }

@@ -239,3 +239,38 @@
     padding: 24px 20px;
   }
 }
+
+.login-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #68756e;
+}
+
+.switch-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #3f6255;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.switch-button:hover {
+  color: #705d8d;
+}
+
+.login-success {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #edf5f0;
+  color: #3f6255;
+  font-size: 14px;
+  text-align: center;
+}

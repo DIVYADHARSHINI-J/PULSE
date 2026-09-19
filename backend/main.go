@@ -24,7 +24,10 @@ func main() {
 	// Create Gin router
 	router := gin.Default()
 router.Use(cors.New(cors.Config{
-   AllowOrigins: []string{"https://pulse-five-teal.vercel.app"},
+   AllowOrigins: []string{
+    "https://pulse-five-teal.vercel.app",
+    "http://localhost:5173",
+},
     AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
     AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
     AllowCredentials: false,
